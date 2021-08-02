@@ -1,0 +1,24 @@
+<h1 style="text-align: center;">Employee Details</h1><br>
+<h3 style="text-align: center;" *ngIf="!employeeDetails.length">No Employee Details!!<br>Please add employee details</h3>
+<div class="container">
+    <table class="table table-striped" *ngIf="employeeDetails.length" >
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employeeDetails">
+              <td>{{emp.id}}</td>
+              <td>{{emp.name}}</td>
+              <td><button class="btn btn-warning" (click)="editEmployee(emp)" >Edit </button></td>
+              <td><button class="btn btn-danger" (click)="deleteEmployee(emp)" >Delete </button></td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>

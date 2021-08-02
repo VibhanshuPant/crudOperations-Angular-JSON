@@ -1,0 +1,17 @@
+<h1 style="text-align: center;">Add Employee</h1><br>
+<div class="container">
+    <form #employeeDetails=ngForm>
+        <div class="mb-3">
+          <label for="empId" class="form-label">Employee Id</label>
+          <input required type="number" #id="ngModel"  name="id" class="form-control" id="empId" [(ngModel)]='httpService.curr_emp.id' >
+          <div class="alert alert-danger" *ngIf="id.touched && !id.valid">*Employee Id is required.</div>
+        </div>
+        <div class="mb-3">
+            <label for="empName" class="form-label">Employee Name</label>
+            <input required type="text" #name="ngModel"  name="name" class="form-control" id="empName" [(ngModel)]='httpService.curr_emp.name' >
+            <div class="alert alert-danger" *ngIf="name.touched && !name.valid">*Employee Name is required.</div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="httpService.isAdd" style="margin-right: 30px;" (click)="addEmployee(employeeDetails.value)">Add</button>
+        <button type="submit" class="btn btn-primary" [disabled]="httpService.isUpdate" (click)="updateEmployee(employeeDetails.value)">Update</button>
+    </form>
+</div>
